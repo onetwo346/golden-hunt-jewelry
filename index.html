@@ -25,6 +25,12 @@
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
         </div>
+        <div class="theme-toggle">
+            <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle day/night mode">
+                <span class="toggle-icon day-icon">☀️</span>
+                <span class="toggle-icon night-icon">🌙</span>
+            </button>
+        </div>
         <div class="nav-toggle">
             <span></span>
             <span></span>
@@ -45,7 +51,7 @@
                 <span class="title-line">Luxury Jewelry</span>
                 <span class="title-line">Buyers & Sellers</span>
             </h1>
-            <p class="hero-description">We buy and sell the finest diamonds, gold, platinum, and luxury timepieces with unmatched expertise and fair pricing</p>
+            <p class="hero-description">We buy and sell the finest diamonds, gold bars, gemstones, platinum, and luxury timepieces with unmatched expertise and fair pricing</p>
             <div class="hero-buttons">
                 <button class="btn-primary" onclick="scrollToSection('we-sell')">View Collection</button>
                 <button class="btn-secondary" onclick="scrollToSection('we-buy')">Sell Your Jewelry</button>
@@ -77,6 +83,16 @@
             <div class="category-container">
                 <h3 class="category-title">LUXURY WATCHES</h3>
                 <div class="buy-category buy-watches" onclick="openServicePopup('watches')"></div>
+            </div>
+            
+            <div class="category-container">
+                <h3 class="category-title">GOLD BARS</h3>
+                <div class="buy-category buy-goldbars" onclick="openServicePopup('goldbars-buy')"></div>
+            </div>
+            
+            <div class="category-container">
+                <h3 class="category-title">GEMSTONES</h3>
+                <div class="buy-category buy-gemstones" onclick="openServicePopup('gemstones-buy')"></div>
             </div>
         </div>
 
@@ -110,6 +126,16 @@
             <div class="category-container">
                 <h3 class="category-title">COINS & CURRENCY</h3>
                 <div class="sell-category" onclick="openPopup('coins')"></div>
+            </div>
+            
+            <div class="category-container">
+                <h3 class="category-title">GOLD BARS</h3>
+                <div class="sell-category" onclick="openPopup('goldbars')"></div>
+            </div>
+            
+            <div class="category-container">
+                <h3 class="category-title">GEMSTONES</h3>
+                <div class="sell-category" onclick="openPopup('gemstones')"></div>
             </div>
         </div>
         
@@ -261,19 +287,16 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">Golden Hunt Jewelry</div>
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#we-buy">We Buy</a>
-                <a href="#we-sell">We Sell</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-            </div>
-
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 Golden Hunt Jewelry. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Scroll to top button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <span class="scroll-icon">↑</span>
+    </button>
 
     <script src="script.js"></script>
 </body>

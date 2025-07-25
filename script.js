@@ -2,6 +2,58 @@
 // GOLDEN HUNT JEWELRY - LUXURY ANIMATIONS
 // ===============================
 
+// Theme toggle functionality
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+
+// Check for saved theme preference or default to day mode
+const savedTheme = localStorage.getItem('theme') || 'day';
+body.classList.toggle('night-mode', savedTheme === 'night');
+
+// Initialize navbar theme on page load
+document.addEventListener('DOMContentLoaded', () => {
+    updateNavbarTheme();
+});
+
+// Theme toggle event listener
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('night-mode');
+    const currentTheme = body.classList.contains('night-mode') ? 'night' : 'day';
+    localStorage.setItem('theme', currentTheme);
+    
+    // Update navbar theme immediately after toggle
+    updateNavbarTheme();
+    
+    // Add smooth transition effect
+    body.style.transition = 'all 0.3s ease';
+    setTimeout(() => {
+        body.style.transition = '';
+    }, 300);
+});
+
+// Scroll to top functionality
+const scrollToTopBtn = document.getElementById('scrollToTop');
+
+// Initialize scroll to top button as hidden
+scrollToTopBtn.classList.remove('visible');
+
+// Show/hide scroll to top button based on scroll position
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add('visible');
+    } else {
+        scrollToTopBtn.classList.remove('visible');
+    }
+});
+
+// Smooth scroll to top when button is clicked
+scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
 // Page loaded - no loading screen
 
 // Smooth scroll function
@@ -16,17 +68,28 @@ function scrollToSection(sectionId) {
 const navbar = document.querySelector('.navbar');
 let lastScrollTop = 0;
 
+// Function to update navbar theme colors
+function updateNavbarTheme() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const isNightMode = body.classList.contains('night-mode');
+    
+    // Remove any inline styles that might interfere with CSS
+    navbar.style.background = '';
+    navbar.style.boxShadow = '';
+    
+    // Add/remove classes for scrolled state instead of inline styles
+    if (scrollTop > 100) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+}
+
 window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
-    // Background change
-    if (scrollTop > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
-    }
+    // Update navbar theme classes
+    updateNavbarTheme();
     
     // Hide/show navbar on scroll
     if (scrollTop > lastScrollTop && scrollTop > 200) {
@@ -315,6 +378,64 @@ function openPopup(category) {
                 </div>
             `;
             break;
+        case 'goldbars':
+            content = `
+                <div class="popup-header">
+                    <h2>Gold Bars</h2>
+                    <p>Premium investment-grade gold bullion bars and ingots</p>
+                </div>
+                <div class="popup-grid">
+                    <div class="popup-item">
+                        <h3>1 oz Gold Bars</h3>
+                        <p>Perfect for smaller investments and gifts</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>10 oz Gold Bars</h3>
+                        <p>Mid-range investment with excellent liquidity</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>1 kg Gold Bars</h3>
+                        <p>Large investment bars with certified purity</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>PAMP Suisse & Credit Suisse</h3>
+                        <p>World-renowned Swiss refiners with assay cards</p>
+                    </div>
+                </div>
+                <div class="popup-cta">
+                    <h3>Invest in Physical Gold Today</h3>
+                </div>
+            `;
+            break;
+        case 'gemstones':
+            content = `
+                <div class="popup-header">
+                    <h2>Precious Gemstones</h2>
+                    <p>Exquisite collection of certified precious and semi-precious stones</p>
+                </div>
+                <div class="popup-grid">
+                    <div class="popup-item">
+                        <h3>Rubies & Sapphires</h3>
+                        <p>Natural and heated stones with certification</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Emeralds</h3>
+                        <p>Colombian, Zambian, and Brazilian emeralds</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Tanzanite & Tourmaline</h3>
+                        <p>Rare and exotic gemstones for collectors</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Pearls</h3>
+                        <p>Natural saltwater and freshwater pearls</p>
+                    </div>
+                </div>
+                <div class="popup-cta">
+                    <h3>Explore Our Gemstone Collection</h3>
+                </div>
+            `;
+            break;
     }
     
     popupBody.innerHTML = content;
@@ -438,6 +559,66 @@ function openServicePopup(service) {
                 <div class="popup-cta">
                     <h3>Watch Appraisal Experts</h3>
                     <p>Get your luxury timepiece professionally evaluated</p>
+                </div>
+            `;
+            break;
+        case 'goldbars-buy':
+            content = `
+                <div class="popup-header">
+                    <h2>🏆 We Buy Gold Bars</h2>
+                    <p>Top prices for all sizes of gold bullion bars and ingots</p>
+                </div>
+                <div class="popup-grid">
+                    <div class="popup-item">
+                        <h3>All Sizes Accepted</h3>
+                        <p>From 1 gram to 1 kilogram bars - we buy them all</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Certified & Assayed</h3>
+                        <p>PAMP, Credit Suisse, Royal Canadian Mint, and more</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Current Market Rates</h3>
+                        <p>Fair pricing based on live gold spot prices</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Immediate Payment</h3>
+                        <p>Cash on the spot for verified gold bars</p>
+                    </div>
+                </div>
+                <div class="popup-cta">
+                    <h3>Get Your Gold Bars Appraised</h3>
+                    <p>Bring your gold bars for professional evaluation</p>
+                </div>
+            `;
+            break;
+        case 'gemstones-buy':
+            content = `
+                <div class="popup-header">
+                    <h2>💎 We Buy Gemstones</h2>
+                    <p>Expert evaluation and fair pricing for all precious and semi-precious stones</p>
+                </div>
+                <div class="popup-grid">
+                    <div class="popup-item">
+                        <h3>Precious Stones</h3>
+                        <p>Rubies, sapphires, emeralds - certified and uncertified</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Semi-Precious Stones</h3>
+                        <p>Tanzanite, tourmaline, garnet, and more</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Pearls</h3>
+                        <p>Natural and cultured pearls of all varieties</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Estate Gemstone Jewelry</h3>
+                        <p>Vintage and antique pieces with gemstones</p>
+                    </div>
+                </div>
+                <div class="popup-cta">
+                    <h3>Gemstone Appraisal Service</h3>
+                    <p>Bring your gemstones for professional evaluation</p>
                 </div>
             `;
             break;

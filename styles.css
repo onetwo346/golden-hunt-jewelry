@@ -17,6 +17,271 @@
     --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
     --gradient-gold: linear-gradient(135deg, #FFD700, #D4AF37, #996515);
     --gradient-black: linear-gradient(135deg, #0A0A0A, #1A1A1A, #2A2A2A);
+    
+    /* Night theme variables */
+    --night-bg: #0A0A0A;
+    --night-surface: #1A1A1A;
+    --night-card: #2A2A2A;
+    --night-text: #E0E0E0;
+    --night-text-secondary: #B0B0B0;
+    --night-border: #333333;
+    --night-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    --night-glow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Night theme styles */
+body.night-mode {
+    background: var(--night-bg);
+    color: var(--night-text);
+}
+
+body.night-mode .navbar {
+    background: rgba(26, 26, 26, 0.95);
+    border-bottom: 1px solid var(--night-border);
+}
+
+body.night-mode .logo-main {
+    color: var(--night-text);
+}
+
+body.night-mode .nav-links a {
+    color: #FFFFFF;
+}
+
+body.night-mode .nav-links a::after {
+    background: var(--gradient-gold);
+}
+
+body.night-mode .nav-toggle span {
+    background: var(--night-text);
+}
+
+body.night-mode .we-sell-section {
+    background: var(--night-surface);
+}
+
+body.night-mode .we-sell-header h1 {
+    color: var(--night-text);
+}
+
+body.night-mode .category-title {
+    color: var(--night-text);
+}
+
+body.night-mode .section-intro h3 {
+    color: var(--night-text);
+}
+
+body.night-mode .section-intro p {
+    color: var(--night-text-secondary);
+}
+
+body.night-mode .cta-card {
+    background: var(--night-card);
+    border-color: var(--night-border);
+    box-shadow: var(--night-shadow);
+}
+
+body.night-mode .cta-card:hover {
+    border-color: var(--gold-primary);
+    box-shadow: var(--night-shadow), var(--night-glow);
+}
+
+body.night-mode .cta-card h4 {
+    color: var(--night-text);
+}
+
+body.night-mode .cta-card p {
+    color: var(--night-text-secondary);
+}
+
+body.night-mode .about-section {
+    background: var(--night-surface);
+}
+
+body.night-mode .about-text h2 {
+    color: var(--night-text);
+}
+
+body.night-mode .about-intro {
+    color: var(--night-text-secondary);
+}
+
+body.night-mode .feature-text h4 {
+    color: var(--night-text);
+}
+
+body.night-mode .feature-text p {
+    color: var(--night-text-secondary);
+}
+
+body.night-mode .contact-section {
+    background: var(--night-surface);
+}
+
+body.night-mode .contact-header h2 {
+    color: var(--night-text);
+}
+
+body.night-mode .contact-header p {
+    color: var(--night-text-secondary);
+}
+
+body.night-mode .location-card {
+    background: var(--night-card);
+    border-color: var(--night-border);
+    box-shadow: var(--night-shadow);
+}
+
+body.night-mode .location-card:hover {
+    box-shadow: var(--night-shadow), var(--night-glow);
+}
+
+body.night-mode .location-header h3 {
+    color: var(--night-text);
+}
+
+body.night-mode .store-hours p,
+body.night-mode .store-contact p {
+    color: var(--night-text-secondary);
+}
+
+body.night-mode .phone-number {
+    color: var(--night-text);
+}
+
+body.night-mode .popup-content {
+    background: var(--night-card);
+    box-shadow: var(--night-shadow);
+}
+
+body.night-mode .popup-header h2 {
+    color: var(--night-text);
+}
+
+body.night-mode .popup-header p {
+    color: var(--night-text-secondary);
+}
+
+body.night-mode .popup-item {
+    background: var(--night-surface);
+    border-left-color: var(--gold-primary);
+}
+
+body.night-mode .popup-item h3 {
+    color: var(--night-text);
+}
+
+body.night-mode .popup-item p {
+    color: var(--night-text-secondary);
+}
+
+body.night-mode .popup-cta {
+    background: var(--gold-primary);
+    color: var(--black);
+}
+
+body.night-mode .popup-cta h3 {
+    color: var(--black);
+}
+
+body.night-mode .popup-cta .phone {
+    color: var(--black);
+}
+
+/* Theme toggle button styles */
+.theme-toggle {
+    margin: 0 1rem;
+}
+
+.theme-toggle-btn {
+    background: transparent;
+    border: 1px solid var(--gold-primary);
+    border-radius: 20px;
+    padding: 0.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    width: 40px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.theme-toggle-btn:hover {
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    transform: scale(1.05);
+}
+
+.toggle-icon {
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    z-index: 2;
+    position: absolute;
+}
+
+.day-icon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.night-icon {
+    opacity: 0;
+    transform: translateX(10px);
+}
+
+body.night-mode .day-icon {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+body.night-mode .night-icon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.theme-toggle-btn::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    background: var(--gold-primary);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+body.night-mode .theme-toggle-btn::before {
+    transform: translateX(16px);
+}
+
+/* Responsive theme toggle */
+@media (max-width: 768px) {
+    .theme-toggle {
+        margin: 0 0.5rem;
+    }
+    
+    .theme-toggle-btn {
+        width: 36px;
+        height: 22px;
+    }
+    
+    .theme-toggle-btn::before {
+        width: 16px;
+        height: 16px;
+    }
+    
+    body.night-mode .theme-toggle-btn::before {
+        transform: translateX(14px);
+    }
+    
+    .toggle-icon {
+        font-size: 0.7rem;
+    }
 }
 
 body {
@@ -43,6 +308,17 @@ body {
     z-index: 1000;
     transition: all 0.3s ease;
     border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Navbar scrolled states */
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.night-mode .navbar.scrolled {
+    background: rgba(26, 26, 26, 0.98);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
@@ -428,6 +704,30 @@ body {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
+.category-container:nth-child(4) .sell-category {
+    background: url('gold222.jpg');
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s ease;
+}
+
+.category-container:nth-child(4) .sell-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.category-container:nth-child(5) .sell-category {
+    background: url('gem.jpg');
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s ease;
+}
+
+.category-container:nth-child(5) .sell-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
 /* WE BUY SECTION STYLES */
 .buy-categories {
     display: grid;
@@ -466,6 +766,18 @@ body {
 
 .buy-watches {
     background: url('watch.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.buy-goldbars {
+    background: url('bars.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.buy-gemstones {
+    background: url('gem22.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -1057,4 +1369,72 @@ footer {
 /* SMOOTH SCROLLING */
 html {
     scroll-behavior: smooth;
+}
+
+/* Scroll to top button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-gold);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-luxury);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    z-index: 1000;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 25px 50px rgba(212, 175, 55, 0.4);
+}
+
+.scroll-icon {
+    font-size: 1.5rem;
+    color: var(--black);
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.scroll-to-top:hover .scroll-icon {
+    transform: translateY(-2px);
+}
+
+/* Night mode styles for scroll to top */
+body.night-mode .scroll-to-top {
+    background: var(--gradient-gold);
+    box-shadow: var(--night-shadow), var(--night-glow);
+}
+
+body.night-mode .scroll-to-top:hover {
+    box-shadow: var(--night-shadow), 0 0 25px rgba(212, 175, 55, 0.5);
+}
+
+/* Mobile responsive scroll to top */
+@media (max-width: 768px) {
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .scroll-icon {
+        font-size: 1.3rem;
+    }
 } 
