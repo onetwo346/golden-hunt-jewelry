@@ -1319,36 +1319,10 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .navbar {
-        padding: 1rem 3%;
-    }
-    
-    .nav-links { 
-        display: none; 
-    }
-    
-    .nav-toggle { 
-        display: flex;
-        order: 3;
-    }
-    
-    .theme-toggle {
-        order: 2;
-        margin: 0 0.5rem;
-    }
-    
-    .logo {
-        order: 1;
-    }
-    
-    .hero-title { 
-        font-size: 3rem; 
-    }
-    
-    .hero-buttons { 
-        flex-direction: column; 
-        align-items: center; 
-    }
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .hero-title { font-size: 3rem; }
+    .hero-buttons { flex-direction: column; align-items: center; }
 
     .inventory-showcase { grid-template-columns: 1fr; }
     .trust-grid { grid-template-columns: repeat(2, 1fr); }
