@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Hunt Jewelry - Colorado Springs' Premier Jewelry Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="golden.png" alt="Golden Hunt Jewelry" class="logo-image">
+            <div class="logo-text">
+                <span class="logo-main">GOLDEN HUNT</span>
+                <span class="logo-sub">JEWELRY</span>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#we-buy">We Buy</a>
+            <a href="#we-sell">We Sell</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-video-bg">
+            <video autoplay muted loop>
+                <source src="back.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-subtitle">Colorado Springs' Most Trusted</div>
+            <h1 class="hero-title">
+                <span class="title-line">Luxury Jewelry</span>
+                <span class="title-line">Buyers & Sellers</span>
+            </h1>
+            <p class="hero-description">We buy and sell the finest diamonds, gold, platinum, and luxury timepieces with unmatched expertise and fair pricing</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToSection('we-sell')">View Collection</button>
+                <button class="btn-secondary" onclick="scrollToSection('we-buy')">Sell Your Jewelry</button>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll to explore</span>
+        </div>
+    </header>
+
+    <section id="we-buy" class="services-section">
+        <div class="section-header">
+            <h2>We Buy Your Jewelry</h2>
+            <p>Get top dollar for your precious items with our expert appraisal service</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card premium">
+                <div class="service-icon">💎</div>
+                <h3>Diamonds & Gemstones</h3>
+                <p>GIA certified appraisals, fair market pricing, immediate cash offers</p>
+                <div class="service-features">
+                    <span>• All carat sizes</span>
+                    <span>• Certified & uncertified</span>
+                    <span>• Loose or mounted</span>
+                </div>
+            </div>
+            <div class="service-card premium">
+                <div class="service-icon">🏆</div>
+                <h3>Gold & Platinum</h3>
+                <p>Current market rates, professional testing, transparent pricing</p>
+                <div class="service-features">
+                    <span>• 10K, 14K, 18K, 24K</span>
+                    <span>• Broken or unwanted pieces</span>
+                    <span>• Coins & bullion</span>
+                </div>
+            </div>
+            <div class="service-card premium">
+                <div class="service-icon">⌚</div>
+                <h3>Luxury Watches</h3>
+                <p>Rolex, Cartier, Omega specialists with authenticated valuations</p>
+                <div class="service-features">
+                    <span>• Swiss luxury brands</span>
+                    <span>• Vintage timepieces</span>
+                    <span>• Working or non-working</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="we-sell" class="we-sell-section">
+        <div class="we-sell-header">
+            <h1>WE SELL</h1>
+        </div>
+        
+        <div class="sell-categories">
+            <div class="category-container">
+                <h3 class="category-title">JEWELRY</h3>
+                <div class="sell-category" onclick="openPopup('jewelry')"></div>
+            </div>
+            
+            <div class="category-container">
+                <h3 class="category-title">ENGAGEMENT & BRIDAL</h3>
+                <div class="sell-category" onclick="openPopup('engagement')"></div>
+            </div>
+            
+            <div class="category-container">
+                <h3 class="category-title">COINS & CURRENCY</h3>
+                <div class="sell-category" onclick="openPopup('coins')"></div>
+            </div>
+        </div>
+        
+        <!-- Popup Modal -->
+        <div id="categoryPopup" class="popup-overlay">
+            <div class="popup-content">
+                <span class="close-popup" onclick="closePopup()">&times;</span>
+                <div id="popupBody">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="something-for-everyone">
+            <h3>Something for Everyone</h3>
+            <p>Stop by our convenient location to view our beautiful and unique selection of jewelry and diamonds, as well as our rare/collectible coins and bullion. If you don't see what you're looking for, our friendly, well-trained staff will be happy to special order what you need. Our goal is to provide you with superior customer service and tremendous value while helping you find the perfect gift for any occasion!</p>
+            
+            <div class="get-started">
+                <h3>Get Started Today</h3>
+                <p>Visit our showroom to discover our exceptional collection of fine jewelry, engagement rings, and rare collectibles. Our expert staff is ready to help you find exactly what you're looking for.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-indicators">
+        <div class="trust-grid">
+            <div class="trust-item">
+                <div class="trust-number">25+</div>
+                <div class="trust-label">Years Experience</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-number">$10M+</div>
+                <div class="trust-label">Jewelry Purchased</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-number">5000+</div>
+                <div class="trust-label">Happy Clients</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-number">A+</div>
+                <div class="trust-label">BBB Rating</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Colorado Springs' Premier Jewelry Experts</h2>
+                <p class="about-intro">For over 25 years, Golden Hunt Jewelry has been the trusted name in luxury jewelry buying and selling throughout Colorado Springs and the Front Range.</p>
+                <div class="about-features">
+                    <div class="feature">
+                        <div class="feature-icon">🔍</div>
+                        <div class="feature-text">
+                            <h4>Expert Appraisals</h4>
+                            <p>GIA certified gemologists on staff</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">💰</div>
+                        <div class="feature-text">
+                            <h4>Fair Market Pricing</h4>
+                            <p>Transparent, competitive valuations</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🛡️</div>
+                        <div class="feature-text">
+                            <h4>Secure Transactions</h4>
+                            <p>Fully licensed and insured</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="image-placeholder"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-header">
+            <h2>Visit Our Store</h2>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="hours-location">
+                    <div class="store-hours">
+                        <h4>Store Hours</h4>
+                        <p>Monday - Friday: 9:00 AM - 7:00 PM<br>
+                        Saturday: 9:00 AM - 6:00 PM<br>
+                        Sunday: 11:00 AM - 5:00 PM</p>
+                    </div>
+                    <div class="store-contact">
+                        <h4>Contact Info</h4>
+                        <p>📍 123 Luxury Lane<br>Colorado Springs, CO 80901</p>
+                        <p>📞 <span class="phone-number">(719) 555-0123</span></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Golden Hunt Jewelry</div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#we-sell">We Sell</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-social">
+                <p>Follow us on social media</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">FB</a>
+                    <a href="#" class="social-icon">IG</a>
+                    <a href="#" class="social-icon">PIN</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Golden Hunt Jewelry. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
