@@ -102,7 +102,88 @@ if (trustSection) {
 
 // Simple contact - no form to handle
 
-// Video background - no parallax needed for actual video
+// Enhanced mobile video handling
+function setupMobileVideo() {
+    const video = document.querySelector('.hero-video-bg video');
+    if (!video) return;
+    
+    // Remove any controls attributes that might appear
+    video.removeAttribute('controls');
+    video.controls = false;
+    
+    // Force playsinline for mobile devices (except Firefox)
+    if (!navigator.userAgent.includes('Firefox')) {
+        video.setAttribute('playsinline', 'true');
+        video.setAttribute('webkit-playsinline', 'true');
+    }
+    
+    // Disable context menu on video
+    video.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        return false;
+    });
+    
+    // Prevent video from being clicked/tapped
+    video.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    });
+    
+    // Prevent touch events on video
+    video.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    });
+    
+    // Ensure video plays on mobile
+    video.addEventListener('loadedmetadata', () => {
+        video.muted = true;
+        video.play().catch(err => {
+            console.log('Video autoplay was prevented:', err);
+            // Create fallback static background if video fails
+            const heroSection = document.querySelector('.hero');
+            if (heroSection) {
+                heroSection.style.background = 'linear-gradient(135deg, #0A0A0A 0%, #2A2A2A 50%, #0A0A0A 100%)';
+            }
+        });
+    });
+    
+    // Monitor for any unwanted control appearances
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'controls') {
+                video.removeAttribute('controls');
+                video.controls = false;
+            }
+        });
+    });
+    
+    observer.observe(video, { attributes: true, attributeFilter: ['controls'] });
+}
+
+// Initialize mobile video setup when DOM is loaded
+document.addEventListener('DOMContentLoaded', setupMobileVideo);
+
+// Additional mobile detection and handling
+if (/Mobi|Android/i.test(navigator.userAgent)) {
+    document.addEventListener('DOMContentLoaded', () => {
+        const video = document.querySelector('.hero-video-bg video');
+        if (video) {
+            // Additional mobile-specific attributes
+            video.style.pointerEvents = 'none';
+            video.style.touchAction = 'none';
+            
+            // Ensure video container doesn't interfere
+            const videoContainer = document.querySelector('.hero-video-bg');
+            if (videoContainer) {
+                videoContainer.style.pointerEvents = 'none';
+                videoContainer.style.touchAction = 'none';
+            }
+        }
+    });
+}
 
 // Mobile navigation toggle
 const navToggle = document.querySelector('.nav-toggle');
@@ -258,6 +339,125 @@ document.getElementById('categoryPopup').addEventListener('click', function(e) {
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closePopup();
+        closeServicePopup();
+    }
+});
+
+// Service card popup functionality
+function openServicePopup(service) {
+    const popup = document.getElementById('servicePopup');
+    const popupBody = document.getElementById('servicePopupBody');
+    
+    let content = '';
+    
+    switch(service) {
+        case 'diamonds':
+            content = `
+                <div class="popup-header">
+                    <h2>💎 Diamonds & Gemstones</h2>
+                    <p>GIA certified appraisals, fair market pricing, immediate cash offers</p>
+                </div>
+                <div class="popup-grid">
+                    <div class="popup-item">
+                        <h3>All Carat Sizes</h3>
+                        <p>From small accent stones to large statement pieces</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Certified & Uncertified</h3>
+                        <p>We evaluate both certified and uncertified diamonds</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Loose or Mounted</h3>
+                        <p>Whether your diamonds are set in jewelry or loose stones</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Expert Evaluation</h3>
+                        <p>Professional grading using industry standard methods</p>
+                    </div>
+                </div>
+                <div class="popup-cta">
+                    <h3>Get Your Diamond Appraised Today</h3>
+                    <p>Visit our store for a professional evaluation</p>
+                </div>
+            `;
+            break;
+        case 'gold':
+            content = `
+                <div class="popup-header">
+                    <h2>🏆 Gold & Platinum</h2>
+                    <p>Current market rates, professional testing, transparent pricing</p>
+                </div>
+                <div class="popup-grid">
+                    <div class="popup-item">
+                        <h3>10K, 14K, 18K, 24K</h3>
+                        <p>All karat weights accepted with accurate testing</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Broken or Unwanted Pieces</h3>
+                        <p>Even damaged jewelry has value - we buy it all</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Coins & Bullion</h3>
+                        <p>Gold and silver coins, bars, and investment pieces</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Platinum Jewelry</h3>
+                        <p>Premium prices for platinum pieces and settings</p>
+                    </div>
+                </div>
+                <div class="popup-cta">
+                    <h3>Get Current Market Value</h3>
+                    <p>Bring your gold and platinum for immediate evaluation</p>
+                </div>
+            `;
+            break;
+        case 'watches':
+            content = `
+                <div class="popup-header">
+                    <h2>⌚ Luxury Watches</h2>
+                    <p>Rolex, Cartier, Omega specialists with authenticated valuations</p>
+                </div>
+                <div class="popup-grid">
+                    <div class="popup-item">
+                        <h3>Swiss Luxury Brands</h3>
+                        <p>Rolex, Patek Philippe, Audemars Piguet, and more</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Vintage Timepieces</h3>
+                        <p>Collectible and rare vintage watches of all eras</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Working or Non-Working</h3>
+                        <p>We buy luxury watches in any condition</p>
+                    </div>
+                    <div class="popup-item">
+                        <h3>Authentication Service</h3>
+                        <p>Expert authentication and valuation services</p>
+                    </div>
+                </div>
+                <div class="popup-cta">
+                    <h3>Watch Appraisal Experts</h3>
+                    <p>Get your luxury timepiece professionally evaluated</p>
+                </div>
+            `;
+            break;
+    }
+    
+    popupBody.innerHTML = content;
+    popup.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeServicePopup() {
+    const popup = document.getElementById('servicePopup');
+    popup.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Close service popup when clicking outside
+document.getElementById('servicePopup').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeServicePopup();
     }
 });
 

@@ -12,7 +12,7 @@
 
     <nav class="navbar">
         <div class="logo">
-            <img src="golden.png" alt="Golden Hunt Jewelry" class="logo-image">
+            <img src="store.png" alt="Golden Hunt Jewelry" class="logo-image">
             <div class="logo-text">
                 <span class="logo-main">GOLDEN HUNT</span>
                 <span class="logo-sub">JEWELRY</span>
@@ -34,13 +34,13 @@
 
     <header class="hero">
         <div class="hero-video-bg">
-            <video autoplay muted loop>
+            <video autoplay muted loop preload="metadata" controls="false">
                 <source src="back.mp4" type="video/mp4">
             </video>
             <div class="video-overlay"></div>
         </div>
         <div class="hero-content">
-            <div class="hero-subtitle">Colorado Springs' Most Trusted</div>
+            <div class="hero-subtitle">International Luxury Jewelry Experts</div>
             <h1 class="hero-title">
                 <span class="title-line">Luxury Jewelry</span>
                 <span class="title-line">Buyers & Sellers</span>
@@ -57,40 +57,35 @@
         </div>
     </header>
 
-    <section id="we-buy" class="services-section">
-        <div class="section-header">
-            <h2>We Buy Your Jewelry</h2>
+    <section id="we-buy" class="we-sell-section">
+        <div class="we-sell-header">
+            <h1>WE BUY</h1>
             <p>Get top dollar for your precious items with our expert appraisal service</p>
         </div>
-        <div class="services-grid">
-            <div class="service-card premium">
-                <div class="service-icon">💎</div>
-                <h3>Diamonds & Gemstones</h3>
-                <p>GIA certified appraisals, fair market pricing, immediate cash offers</p>
-                <div class="service-features">
-                    <span>• All carat sizes</span>
-                    <span>• Certified & uncertified</span>
-                    <span>• Loose or mounted</span>
-                </div>
+        
+        <div class="buy-categories">
+            <div class="category-container">
+                <h3 class="category-title">DIAMONDS & GEMSTONES</h3>
+                <div class="buy-category buy-diamonds" onclick="openServicePopup('diamonds')"></div>
             </div>
-            <div class="service-card premium">
-                <div class="service-icon">🏆</div>
-                <h3>Gold & Platinum</h3>
-                <p>Current market rates, professional testing, transparent pricing</p>
-                <div class="service-features">
-                    <span>• 10K, 14K, 18K, 24K</span>
-                    <span>• Broken or unwanted pieces</span>
-                    <span>• Coins & bullion</span>
-                </div>
+            
+            <div class="category-container">
+                <h3 class="category-title">GOLD & PLATINUM</h3>
+                <div class="buy-category buy-gold" onclick="openServicePopup('gold')"></div>
             </div>
-            <div class="service-card premium">
-                <div class="service-icon">⌚</div>
-                <h3>Luxury Watches</h3>
-                <p>Rolex, Cartier, Omega specialists with authenticated valuations</p>
-                <div class="service-features">
-                    <span>• Swiss luxury brands</span>
-                    <span>• Vintage timepieces</span>
-                    <span>• Working or non-working</span>
+            
+            <div class="category-container">
+                <h3 class="category-title">LUXURY WATCHES</h3>
+                <div class="buy-category buy-watches" onclick="openServicePopup('watches')"></div>
+            </div>
+        </div>
+
+        <!-- Service Popup Modal -->
+        <div id="servicePopup" class="popup-overlay">
+            <div class="popup-content">
+                <span class="close-popup" onclick="closeServicePopup()">&times;</span>
+                <div id="servicePopupBody">
+                    <!-- Content will be loaded dynamically -->
                 </div>
             </div>
         </div>
@@ -129,12 +124,30 @@
         </div>
         
         <div class="something-for-everyone">
-            <h3>Something for Everyone</h3>
-            <p>Stop by our convenient location to view our beautiful and unique selection of jewelry and diamonds, as well as our rare/collectible coins and bullion. If you don't see what you're looking for, our friendly, well-trained staff will be happy to special order what you need. Our goal is to provide you with superior customer service and tremendous value while helping you find the perfect gift for any occasion!</p>
+            <div class="section-intro">
+                <h3>Something for Everyone</h3>
+                <p>Stop by our convenient locations to view our beautiful and unique selection of jewelry and diamonds, as well as our rare/collectible coins and bullion. If you don't see what you're looking for, our friendly, well-trained staff will be happy to special order what you need.</p>
+            </div>
             
-            <div class="get-started">
-                <h3>Get Started Today</h3>
-                <p>Visit our showroom to discover our exceptional collection of fine jewelry, engagement rings, and rare collectibles. Our expert staff is ready to help you find exactly what you're looking for.</p>
+            <div class="cta-grid">
+                <div class="cta-card">
+                    <div class="cta-icon">🏪</div>
+                    <h4>Visit Our Showrooms</h4>
+                    <p>Discover our exceptional collection in person</p>
+                    <div class="cta-buttons">
+                        <button class="cta-btn primary" onclick="scrollToSection('contact')">Our Locations</button>
+                    </div>
+                </div>
+                
+
+                <div class="cta-card">
+                    <div class="cta-icon">💎</div>
+                    <h4>Special Orders</h4>
+                    <p>Can't find what you're looking for? We'll get it for you</p>
+                    <div class="cta-buttons">
+                        <button class="cta-btn secondary" onclick="scrollToSection('contact')">Contact Us</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -163,8 +176,8 @@
     <section id="about" class="about-section">
         <div class="about-content">
             <div class="about-text">
-                <h2>Colorado Springs' Premier Jewelry Experts</h2>
-                <p class="about-intro">For over 25 years, Golden Hunt Jewelry has been the trusted name in luxury jewelry buying and selling throughout Colorado Springs and the Front Range.</p>
+                <h2>International Luxury Jewelry Experts</h2>
+                <p class="about-intro">For over 25 years, Golden Hunt Jewelry has been the trusted name in luxury jewelry buying and selling. With locations in Colorado Springs, USA and Edinburgh, Scotland, we serve clients across two continents with the same commitment to excellence.</p>
                 <div class="about-features">
                     <div class="feature">
                         <div class="feature-icon">🔍</div>
@@ -197,11 +210,17 @@
 
     <section id="contact" class="contact-section">
         <div class="contact-header">
-            <h2>Visit Our Store</h2>
+            <h2>Visit Our Stores</h2>
+            <p>Two convenient locations to serve you</p>
         </div>
-        <div class="contact-content">
-            <div class="contact-info">
-                <div class="hours-location">
+        <div class="locations-grid">
+            <!-- Colorado Springs Location -->
+            <div class="location-card">
+                <div class="location-header">
+                    <h3>🇺🇸 Colorado Springs</h3>
+                    <span class="location-badge">Flagship Store</span>
+                </div>
+                <div class="location-details">
                     <div class="store-hours">
                         <h4>Store Hours</h4>
                         <p>Monday - Friday: 9:00 AM - 7:00 PM<br>
@@ -216,6 +235,26 @@
                 </div>
             </div>
 
+            <!-- Edinburgh Location -->
+            <div class="location-card">
+                <div class="location-header">
+                    <h3>🇬🇧 Edinburgh</h3>
+                    <span class="location-badge">UK Branch</span>
+                </div>
+                <div class="location-details">
+                    <div class="store-hours">
+                        <h4>Store Hours</h4>
+                        <p>Monday - Friday: 10:00 AM - 6:00 PM<br>
+                        Saturday: 10:00 AM - 5:00 PM<br>
+                        Sunday: 12:00 PM - 4:00 PM</p>
+                    </div>
+                    <div class="store-contact">
+                        <h4>Contact Info</h4>
+                        <p>📍 45 Royal Mile<br>Edinburgh, Scotland EH1 1RE</p>
+                        <p>📞 <span class="phone-number">+44 131 555-0789</span></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -224,18 +263,12 @@
             <div class="footer-logo">Golden Hunt Jewelry</div>
             <div class="footer-links">
                 <a href="#home">Home</a>
+                <a href="#we-buy">We Buy</a>
                 <a href="#we-sell">We Sell</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
             </div>
-            <div class="footer-social">
-                <p>Follow us on social media</p>
-                <div class="social-icons">
-                    <a href="#" class="social-icon">FB</a>
-                    <a href="#" class="social-icon">IG</a>
-                    <a href="#" class="social-icon">PIN</a>
-                </div>
-            </div>
+
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 Golden Hunt Jewelry. All rights reserved.</p>
