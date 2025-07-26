@@ -199,6 +199,70 @@
         </div>
     </section>
 
+    <section class="testimonials-section">
+        <div class="testimonials-header">
+            <h2>What Our Clients Say</h2>
+            <p>Real experiences from satisfied customers across our locations</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="stars">★★★★★</div>
+                    <p>"Exceptional service! I sold my grandmother's diamond ring and the staff was incredibly knowledgeable and fair. They explained every step of the appraisal process and offered me a price that exceeded my expectations."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar" data-avatar="1"></div>
+                    <div class="author-info">
+                        <div class="author-name">Sarah Mitchell</div>
+                        <div class="author-location">Colorado Springs</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="stars">★★★★★</div>
+                    <p>"Found my perfect engagement ring here! The custom design service was outstanding. They worked with my budget and created something truly unique. My fiancée absolutely loves it!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar" data-avatar="2"></div>
+                    <div class="author-info">
+                        <div class="author-name">James Rodriguez</div>
+                        <div class="author-location">Colorado Springs</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="stars">★★★★★</div>
+                    <p>"Brilliant experience at the Edinburgh location! Sold my late father's Rolex collection and they handled everything with such care and professionalism. The authentication process was thorough and the pricing was very fair."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar" data-avatar="3"></div>
+                    <div class="author-info">
+                        <div class="author-name">Margaret Thompson</div>
+                        <div class="author-location">Edinburgh</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="stars">★★★★★</div>
+                    <p>"I've been buying gold bars here for investment purposes for over 3 years. Their prices are competitive, the quality is always guaranteed, and the staff truly understands precious metals. Highly recommended!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar" data-avatar="4"></div>
+                    <div class="author-info">
+                        <div class="author-name">David Chen</div>
+                        <div class="author-location">Colorado Springs</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="about" class="about-section">
         <div class="about-content">
             <div class="about-text">
@@ -297,6 +361,49 @@
     <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
         <span class="scroll-icon">↑</span>
     </button>
+
+    <!-- Chat Support Widget -->
+    <div id="chatWidget" class="chat-widget">
+        <div id="chatToggle" class="chat-toggle">
+            <div class="chat-icon">
+                <span class="icon-chat">💬</span>
+                <span class="icon-close">✕</span>
+            </div>
+            <div class="chat-pulse"></div>
+        </div>
+        <div id="chatContainer" class="chat-container">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <div class="chat-avatar">👨‍💼</div>
+                    <div class="chat-details">
+                        <div class="chat-name">Golden Hunt Jewelry</div>
+                        <div class="chat-status">Expert Assistance Available</div>
+                    </div>
+                </div>
+                <button id="chatMinimize" class="chat-minimize">−</button>
+            </div>
+            <div id="chatMessages" class="chat-messages">
+                <div class="message bot-message">
+                    <div class="message-avatar">👨‍💼</div>
+                    <div class="message-content">
+                        <p>Welcome to Golden Hunt Jewelry! I'm here to help you with any questions about our luxury jewelry, diamonds, gold buying, or services.</p>
+                        <p>How can I assist you today?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-quick-actions">
+                <button class="quick-action" data-action="hours">Store Hours</button>
+                <button class="quick-action" data-action="services">Our Services</button>
+                <button class="quick-action" data-action="contact">Contact Info</button>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Type your message..." autocomplete="off">
+                <button id="chatSend" class="chat-send">
+                    <span class="send-icon">→</span>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
